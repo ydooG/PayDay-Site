@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load staticfiles %}
+    <title>Budget control</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../images/owl.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<!-- -->
+<div id="section00">
+
+    <img id="logo" src="../images/logo.png" alt="PayDay">
+
+    <img id="entry_text" src="../images/entry_text.png"
+         alt="Hello, I'm PayDay I'll help you to control budget.Follow me!">
+
+    <div id="section-next" class="container">
+        <button type="button" href="#section2" class="btn btn-secondary btn-lg next-btn">Next</button>
+        <!--<a href="#section1">
+        </a>-->
+    </div>
+</div>
+
+<div id="section01">
+    <!-- -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#section00">PayDay</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section1">Name and Date</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section2">Participants</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section3">Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section4">Who and What</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- -->
+    <div id="section1" class="container-fluid">
+        <form id="form_creating_event">
+            <div class="centered">
+                <div class="visible">
+                    <h1>Enter the name of event and the date.</h1><br/>
+                    <div class="form-group">
+
+                        <label for="usr"><h3>Name</h3></label>
+                        <input type="text" class="form-control" id="usr">
+
+                    </div>
+                    <br/>
+                    <h3>Date</h3>
+                    <input type="date" name="date" id="date">
+                    <br/>
+                </div>
+            </div>
+            <div class="next-btn" id="nd_next">
+                <a href="#section2">
+                    <button type="submit" class="btn btn-secondary btn-lg">Next</button>
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- -->
+    <div id="section2" class="container-fluid">
+        <div class="centered">
+            <div class="visible">
+                <h1>Participants</h1><br/>
+                <div>
+                    <form id="form_adding_user" >
+                        <label for="usr"><h4>Name</h4></label>
+                        <input type="text" class="form-control" id="name">
+                        <label for="usr"><h4>Surname</h4></label>
+                        <input type="text" class="form-control" id="surname"><br/>
+                        <a>
+                            <button type="submit" class="btn btn-secondary">Add</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="next-btn">
+            <a href="#section3">
+                <button type="button" class="btn btn-secondary btn-lg">Next</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- -->
+    <div id="section3" class="container-fluid">
+        <div class="centered">
+            <div class="visible">
+                <h1>Items</h1>
+                <div>
+                    <form id="form_adding_product">
+                        <label for="usr"><h4>The product's name</h4></label>
+                        <input type="text" class="form-control" id="name_of_product"><br/>
+
+                        <div class="dropdown" id="who_bought_product">
+                            <select id="section3_users" class="custom-select custom-select-lg mb-3">
+                                <option selected>Who have bought?</option>
+                            </select>
+                            <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                Who have bought?
+                            </button>
+                            {#                            <input type="name" id=""#}
+
+                            <div class="dropdown-menu select-name" id="user_selector">
+                                <p class="dropdown-item">Я</p>
+                                <p class="dropdown-item">Не знаю</p>
+                                <p class="dropdown-item">Кого</p>
+                                <p class="dropdown-item">Сюда</p>
+                                <p class="dropdown-item">Добавить</p>
+                            </div>-->
+                        </div>
+                        <br/><br/><br/>
+                        <div class="block_price_and_quantity">
+                            <div class="price">
+                                <label for="usr"><h4>Price</h4></label>
+                                <p><input type="number" id="price_of_product" name="price" size="" min="1"
+                                          value=""><br/>
+                                </p>
+                            </div>
+                            <div class="quantity">
+                                <label for="usr"><h4>Quantity</h4></label>
+                                <p><input type="number" id="quantity_of_product" name="quantity" size="" min="1"
+                                          value="1"><br/>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <a>
+                            <button type="submit" class="btn btn-secondary">Add</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="next-btn" id="products-next-btn">
+            <a href="#section4">
+                <button type="button" class="btn btn-secondary btn-lg">Next</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- -->
+    <div id="section4" class="container-fluid">
+        <div class="centered">
+            <div class="visible" id="ww">
+                <h1>Who and what</h1>
+                <div style="display: flex">
+                    <div class="dropdown">
+                        <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                            Select one...
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">First choice</a>
+                            <a class="dropdown-item" href="#">Second choice</a>
+                            <a class="dropdown-item" href="#">Third choice</a>
+                        </div>-->
+                        <select id="section4_users" class="custom-select custom-select-lg mb-3 select-user">
+                            <option selected>Select one...</option>
+                        </select>
+                        <br/><br/><br/>
+                        <button id="show_users_list" type="button" class="btn btn-secondary">
+                            Show list
+                        </button>
+
+                    </div>
+
+                    <div class="dropdown">
+                        <select id="section4_products" class="custom-select custom-select-lg mb-3 select-user">
+                            <option selected>Select one...</option>
+                        </select>
+                        <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                            Select one...
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">First choice</a>
+                            <a class="dropdown-item" href="#">Second choice</a>
+                            <a class="dropdown-item" href="#">Third choice</a>
+                        </div>-->
+                        <br/><br/><br/>
+                        <button type="button" class="btn btn-secondary">
+                            Add to list
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-btn" id="eaters-next-btn">
+            <a href="#section5">
+                <button type="button" class="btn btn-secondary btn-lg">Next</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- -->
+    <div id="section5" class="container-fluid">
+        <div class="show-btn">
+            <a href="#">
+                <button type="button" class="btn btn-secondary btn-lg">Show</button>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="../js/mainScript.js"></script>
+</body>
+</html>

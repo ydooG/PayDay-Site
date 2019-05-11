@@ -1,0 +1,127 @@
+body {
+    position: relative;
+}
+
+#entry_text {
+    padding-top: 2vh;
+    padding-left: 20vw;
+}
+
+#logo {
+    padding-top: 10vh;
+    padding-left: 20vw;
+    width: 80vw;
+    height: 50vh;
+}
+
+#section00{
+height: 100vh;
+background-image: url(../images/background_00.jpg);
+background-size: 100%;
+}
+
+#section1 {
+background-image: url(../images/background_1.jpg);
+}
+
+#section2 {
+background-image: url(../images/background_2.jpg);
+}
+
+#section3 {
+background-image: url(../images/background_3.jpg);
+}
+
+#section4 {
+background-image: url(../images/background_4.jpg);
+}
+
+#ww{
+    height: 35vh;
+}
+
+#section5 {
+background-image: url(../images/background_5.jpg);
+}
+
+#section-next{
+    padding-top: 5vh;
+    padding-left: 33vw;
+}
+
+#nd_next {
+    padding-top: 14vh;
+}
+
+#eaters-next-btn{
+padding-top: 38vh;
+}
+
+#products-next-btn{
+padding-top: 2vh;
+}
+
+.btn-secondary {
+    opacity: 0.9;
+}
+
+.next-btn {
+padding-left: 45.5vw;
+padding-top: 22vh;
+align-self: center;
+}
+
+.show-btn{
+padding-left: 46.5vw;
+padding-top: 55vh;
+}
+
+.container-fluid {
+padding-top: 5vh;
+height:100vh;
+background-attachment: scroll;
+background-size: cover;
+}
+
+.information {
+height: 30vh;
+}
+
+.dropdown {
+    float: left;
+    margin-right: 5vw;
+}
+
+.form-control {
+    height: 48px;
+    font-size: 20px;
+}
+
+.visible {
+    background-color: #EEE;
+    width: 40vw;
+    color: #000;
+    padding: 5vh;
+    opacity: 0.85;
+}
+
+.centered{
+    padding-top: 10vh;
+    padding-left: 27.5vw
+}
+
+.select-name {
+    margin-bottom: 0;
+}
+
+.select-user {
+    height: 38px;
+}
+
+.quantity {
+    margin-left: 70px;
+}
+
+.block_price_and_quantity {
+    display: flex;
+}
