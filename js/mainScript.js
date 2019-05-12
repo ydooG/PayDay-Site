@@ -88,7 +88,7 @@ $(document).ready(function () {
         $('#name_of_product').val('');
         $('#price_of_product').val('');
         var e = document.getElementById("section3_users");
-        var userNmb = e.options[e.selectedIndex].value-1;
+        var userNmb = e.options[e.selectedIndex].value - 1;
         var user = users[userNmb];
         var quantity = $('#quantity_of_product').val();
         $('#quantity_of_product').val('');
@@ -118,9 +118,9 @@ $(document).ready(function () {
     formAddMember.on('submit', function (e) {
         e.preventDefault();
         var usrSel = document.getElementById("section4_users");
-        var userNmb = usrSel.options[usrSel.selectedIndex].value-1;
+        var userNmb = usrSel.options[usrSel.selectedIndex].value - 1;
         var prodSel = document.getElementById("section4_products");
-        var productNmb = prodSel.options[prodSel.selectedIndex].value-1;
+        var productNmb = prodSel.options[prodSel.selectedIndex].value - 1;
 
         var member = new Member(users[userNmb], products[productNmb]);
         members.push(member);
@@ -262,6 +262,31 @@ $(document).ready(function () {
             console.log(products[i].to_string());
         }*/
 
+        for (var i = 0; i < 5; i++) {
+            var user = new User("User" + i, "Surname");
+            users.push(user);
+        }
+        for (var i = 0; i < users.length; i++) {
+            console.log(users[i]);
+        }
+
+        for (var i = 0; i < 3; i++) {
+            var product = new Product("product" + i, users[i], i + 10);
+            products.push(product);
+        }
+        for (var i = 0; i < products.length; i++) {
+            console.log(products[i]);
+        }
+
+        for (var i = 0; i < 2; i++) {
+            var member = new Member(users[i], products[i + 1]);
+            members.push(member);
+        }
+        for (var i = 0; i < members.length; i++) {
+            console.log(members[i]);
+        }
+
+
         for (var i = 0; i < users.length; i++) {
             var all_kind = true;
             var current = [];
@@ -287,6 +312,7 @@ $(document).ready(function () {
             var to_user_list = [];
             for (var j = 0; j < current_product_list.length; j++) {
                 var price = current_product_list[j].getPrice() / current_product_list[j].getAmount();
+                price = price.toFixed(2);
                 to_user_list.push(new toUser(current_product_list[j].getUser(), price));
             }
             users[i].setToUserList(to_user_list);
@@ -295,7 +321,7 @@ $(document).ready(function () {
         console.log('New');
 
         for (var i = 0; i < users.length; i++) {
-            console.log(users[i].to_string()+" should pay:");
+            console.log(users[i].to_string() + " should pay:");
             var list = users[i].getToUserList();
             for (var j = 0; j < list.length; j++) {
                 console.log(list[j])
@@ -303,11 +329,14 @@ $(document).ready(function () {
         }
         addTable();
     });
-    
-    function addTable(){
+
+    function addTable() {
         var section5 = document.getElementById('section5');
         var table = document.createElement('table');
         table.setAttribute('border', '1');
+        table.className += " table";
+        table.style.width = '60%';
+        table.style.color = 'white';
         for (var i = 0; i < users.length; i++) {
             var row = table.insertRow(i);
             var list = users[i].getToUserList();
@@ -316,7 +345,7 @@ $(document).ready(function () {
             var cell1 = row.insertCell(1);
             var data = ""
             for (var j = 0; j < list.length; j++) {
-                 data += "<p>" + list[j].getUser().getName() + " " + list[j].getUser().getSurname() + " " + list[j].getAmount() + "</p>";
+                data += "<p>" + list[j].getUser().getName() + " " + list[j].getUser().getSurname() + " " + list[j].getAmount() + "</p>";
             }
             cell1.innerHTML = data;
         }
