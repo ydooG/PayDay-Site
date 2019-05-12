@@ -24,6 +24,8 @@ $(document).ready(function () {
         e.preventDefault();
         var name = $('#name').val();
         var surname = $('#surname').val();
+        $('#name').val('');
+        $('#surname').val('');
         var fullname = name + ' ' + surname;
         var user = new User(name, surname);
         usersNames.push(fullname);
@@ -83,10 +85,13 @@ $(document).ready(function () {
         e.preventDefault();
         var name = $('#name_of_product').val();
         var price = $('#price_of_product').val();
+        $('#name_of_product').val('');
+        $('#price_of_product').val('');
         var e = document.getElementById("section3_users");
         var userNmb = e.options[e.selectedIndex].value-1;
         var user = users[userNmb];
         var quantity = $('#quantity_of_product').val();
+        $('#quantity_of_product').val('');
         var fullPrice = price * quantity;
         // products[name] = (Product(name, users[userNmb], fullPrice));
         console.log(user.to_string());
