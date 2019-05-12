@@ -3,37 +3,37 @@ body {
 }
 
 #entry_text {
-    padding-top: 2vh;
-    padding-left: 20vw;
+    margin-top: 2vh;
+    margin-left: 20vw;
 }
 
 #logo {
-    padding-top: 10vh;
-    padding-left: 20vw;
-    width: 80vw;
-    height: 50vh;
+    margin-top: 10vh;
+    margin-left: 20vw;
+    width: 60vw;
+    height: 45vh;
 }
 
 #section00{
-height: 100vh;
-background-image: url(../images/background_00.jpg);
-background-size: 100%;
+    height: 100vh;
+    background-image: url(../images/background_00.jpg);
+    background-size: 100%;
 }
 
 #section1 {
-background-image: url(../images/background_1.jpg);
+    background-image: url(../images/background_1.jpg);
 }
 
 #section2 {
-background-image: url(../images/background_2.jpg);
+    background-image: url(../images/background_2.jpg);
 }
 
 #section3 {
-background-image: url(../images/background_3.jpg);
+    background-image: url(../images/background_3.jpg);
 }
 
 #section4 {
-background-image: url(../images/background_4.jpg);
+    background-image: url(../images/background_4.jpg);
 }
 
 #ww{
@@ -41,24 +41,7 @@ background-image: url(../images/background_4.jpg);
 }
 
 #section5 {
-background-image: url(../images/background_5.jpg);
-}
-
-#section-next{
-    padding-top: 5vh;
-    padding-left: 33vw;
-}
-
-#nd_next {
-    padding-top: 14vh;
-}
-
-#eaters-next-btn{
-padding-top: 38vh;
-}
-
-#products-next-btn{
-padding-top: 2vh;
+    background-image: url(../images/background_5.jpg);
 }
 
 .btn-secondary {
@@ -66,25 +49,25 @@ padding-top: 2vh;
 }
 
 .next-btn {
-padding-left: 45.5vw;
-padding-top: 22vh;
-align-self: center;
+    position: relative;
+    margin-left: 45.5vw;
+    margin-top: 5vh;
+    align-self: center;
 }
 
 .show-btn{
-padding-left: 46.5vw;
-padding-top: 55vh;
+    margin-top: 10vh;
+    margin-left: 46.5vw;
 }
 
 .container-fluid {
-padding-top: 5vh;
-height:100vh;
-background-attachment: scroll;
-background-size: cover;
+    height:100vh;
+    background-attachment: scroll;
+    background-size: cover;
 }
 
 .information {
-height: 30vh;
+    height: 30vh;
 }
 
 .dropdown {
@@ -110,13 +93,13 @@ height: 30vh;
     padding-left: 27.5vw
 }
 
-.select-name {
+/* .select-name {
     margin-bottom: 0;
 }
 
 .select-user {
     height: 38px;
-}
+} */
 
 .quantity {
     margin-left: 70px;
