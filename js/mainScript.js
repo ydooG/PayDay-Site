@@ -296,7 +296,27 @@ $(document).ready(function () {
                 console.log(list[j])
             }
         }
+        addTable();
     });
+    
+    function addTable(){
+        var section5 = document.getElementById('section5');
+        var table = document.createElement('table');
+        table.setAttribute('border', '1');
+        for (var i = 0; i < users.length; i++) {
+            var row = table.insertRow(i);
+            var list = users[i].getToUserList();
+            var cell = row.insertCell(0);
+            cell.innerHTML = users[i].getName() + " " + users[i].getSurname() + " should pay:";
+            var cell1 = row.insertCell(1);
+            var data = ""
+            for (var j = 0; j < list.length; j++) {
+                 data += "<p>" + list[j].getUser().getName() + " " + list[j].getUser().getSurname() + " " + list[j].getAmount() + "</p>";
+            }
+            cell1.innerHTML = data;
+        }
 
+        section5.appendChild(table);
+    }
 
 });
