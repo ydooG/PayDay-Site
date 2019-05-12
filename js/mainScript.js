@@ -341,7 +341,18 @@ $(document).ready(function () {
         table.style.color = 'black';
         table.style.marginLeft = '20%';
         table.style.marginTop = '5vh';
+        table.style.textAlign = 'center';
         table.style.backgroundColor = '#EEE';
+        table.style.borderColor = 'black';
+        var h4 = document.createElement('h4');
+        h4.style.textAlign = 'center';
+        h4.style.marginTop = '5vh';
+        h4.style.width = '60%';
+        h4.style.width = '60%';
+        h4.style.padding = '3px';
+        h4.style.marginLeft = '20%';
+        h4.style.backgroundColor = '#EEE';
+        h4.innerHTML = "<h4>" + eventName + ". Date: " + date + "</h4>";
         for (var i = 0; i < users.length; i++) {
             var row = table.insertRow(i);
             var list = users[i].getToUserList();
@@ -356,6 +367,7 @@ $(document).ready(function () {
             cell.style.width = '50%';
         }
 
+        section5.appendChild(h4);
         section5.appendChild(table);
     }
 
