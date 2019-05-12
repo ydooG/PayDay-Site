@@ -83,7 +83,7 @@
             <div class="visible">
                 <h1>Participants</h1><br/>
                 <div>
-                    <form id="form_adding_user">
+                    <form id="form_adding_user" name="adding_users">
                         <label for="usr"><h4>Name</h4></label>
                         <input type="text" class="form-control" id="name">
                         <label for="usr"><h4>Surname</h4></label>
@@ -108,7 +108,7 @@
             <div class="visible">
                 <h1>Items</h1>
                 <div>
-                    <form id="form_adding_product">
+                    <form id="form_adding_product" name="adding_product">
                         <label for="usr"><h4>The product's name</h4></label>
                         <input type="text" class="form-control" id="name_of_product"><br/>
 
@@ -217,14 +217,18 @@
     <!-- -->
     <div id="section5" class="panel container-fluid">
         <div class="show-btn">
-            <a href="#">
-                <button type="button" class="btn btn-secondary btn-lg">Show</button>
-            </a>
+            <form id="show_results">
+                <button type="submit" class="btn btn-secondary btn-lg">Show</button>
+                <!--<a href="#">
+                </a>-->
+            </form>
         </div>
     </div>
 </div>
 <script src="../js/mainScript.js"></script>
-<script src="../js/scroll.js"></script>
-<script src="../js/jquery.scrollify.js"></script>
+
+<!--Включать scrollify тут, не удобно было тестировать, вырубил.-->
+<!--<script src="../js/scroll.js"></script>-->
+<!--<script src="../js/jquery.scrollify.js"></script>-->
 </body>
 </html>

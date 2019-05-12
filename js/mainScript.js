@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
     var users = new Array();
-    var products = new Array();
+    var products = [];
+    var members = [];
+    var usersNames = [];
     var eventName = "";
     var date = "";
 
@@ -24,17 +26,13 @@ $(document).ready(function () {
         var surname = $('#surname').val();
         var fullname = name + ' ' + surname;
         var user = new User(name, surname);
-        // var fullname = name + ' ' + surname;
-        users[fullname] = user;
-        for (var i = 0; i < users.length; i++) {
+        usersNames.push(fullname);
+        users.push(user);
+        console.log(usersNames.length + ' ' + users.length);
+
+        /*for (var i = 0; i < users.length; i++) {
             console.log(users[i].to_string())
-        }
-        // $('.select-name ul').appendChild('<li>' + user.to_string() + '</li>');
-        /*var para = document.createElement("P");
-        var t = document.createTextNode(user.to_string());
-        para.appendChild(t);
-        para.classList.add('dropdown-item');
-        document.getElementById("user_selector").appendChild(para);*/
+        }*/
 
         var option = document.createElement("option");
         option.innerHTML = user.to_string();
@@ -69,7 +67,15 @@ $(document).ready(function () {
                 console.log('error')
             }
         })*/
+
+        //cleaning form
+
+        /*var frm = document.getElementsByName('adding_users')[0];
+        frm.submit(); // Submit
+        frm.reset();  // Reset
+        return false;*/
     });
+
 
     var formAddProduct = $('#form_adding_product');
     console.log(formAddProduct);
@@ -78,26 +84,45 @@ $(document).ready(function () {
         var name = $('#name_of_product').val();
         var price = $('#price_of_product').val();
         var e = document.getElementById("section3_users");
-        var user = e.options[e.selectedIndex].text;
+        var userNmb = e.options[e.selectedIndex].value-1;
+        var user = users[userNmb];
         var quantity = $('#quantity_of_product').val();
         var fullPrice = price * quantity;
-        products.push(Product(name, users[user], fullPrice));
+        // products[name] = (Product(name, users[userNmb], fullPrice));
+        console.log(user.to_string());
+        var product = new Product(name, users[userNmb], fullPrice);
+        console.log(product.to_string());
+        products.push(product);
 
         var option = document.createElement("option");
         option.innerHTML = name;
         option.value = products.length;
         document.getElementById("section4_products").append(option);
 
-        console.log(user + " bought " + quantity + ' ' + name + " for " + price);
+        console.log(user.to_string() + " bought " + quantity + ' ' + name + " for " + price);
 
+        // cleaning form, works bad
+
+        /*var frm2 = document.getElementsByName('adding_product')[0];
+        frm2.submit(); // Submit
+        frm2.reset();  // Reset
+        return false;*/
     });
 
     var formAddMember = $('#form_adding_members');
     formAddMember.on('submit', function (e) {
         e.preventDefault();
-        var user = e.options[e.selectedIndex].text;
-        console.log(user);
-    })
+        var usrSel = document.getElementById("section4_users");
+        var userNmb = usrSel.options[usrSel.selectedIndex].value-1;
+        var prodSel = document.getElementById("section4_products");
+        var productNmb = prodSel.options[prodSel.selectedIndex].value-1;
+
+        var member = new Member(users[userNmb], products[productNmb]);
+        members.push(member);
+        console.log(users[userNmb].to_string());
+        console.log(products[productNmb].to_string());
+        console.log("Success");
+    });
 
 
     function User(name, surname) {
@@ -153,6 +178,9 @@ $(document).ready(function () {
         this.addAmount = function () {
             this.amount++;
         }
+        this.to_string = function () {
+            return this.name + ' ' + this.user.to_string() + ' ' + this.price;
+        }
     }
 
     function Member(user, product) {
@@ -185,15 +213,11 @@ $(document).ready(function () {
         alert("Ты в алерте");
     });
 
-
-    var users = []
-    var products = []
-    var members = []
-
-    for (var i = 0; i < 5; i++) {
+    /*for (var i = 0; i < 5; i++) {
         var user = new User("User" + i, "Surname");
         users.push(user);
     }
+
     for (var i = 0; i < users.length; i++) {
         console.log(users[i]);
     }
@@ -202,6 +226,7 @@ $(document).ready(function () {
         var product = new Product("product" + i, users[i], i + 10);
         products.push(product);
     }
+
     for (var i = 0; i < products.length; i++) {
         console.log(products[i]);
     }
@@ -210,47 +235,68 @@ $(document).ready(function () {
         var member = new Member(users[i], products[i + 1]);
         members.push(member);
     }
+
     for (var i = 0; i < members.length; i++) {
         console.log(members[i]);
-    }
-    for (var i = 0; i < users.length; i++) {
-        var all_kind = true;
-        var current = []
-        for (var j = 0; j < members.length; j++) {
-            if (users[i] == members[j].getUser()) {
-                current.push(members[j].getPoduct());
-                members[j].getPoduct().addAmount();
-                all_kind = false;
+    }*/
+
+    var show = $('#show_results');
+    show.on('submit', function (e) {
+        e.preventDefault();
+        console.log("Вычисления");
+
+        /*// testing users array
+        console.log("Users");
+        for(var i =0; i<users.length; i++) {
+            console.log(users[i].to_string());
+        }
+
+        // testing products array
+        console.log("\nProducts:");
+        for(var i =0; i<products.length; i++) {
+            console.log(products[i].to_string());
+        }*/
+
+        for (var i = 0; i < users.length; i++) {
+            var all_kind = true;
+            var current = [];
+            for (var j = 0; j < members.length; j++) {
+                if (users[i] == members[j].getUser()) {
+                    current.push(members[j].getPoduct());
+                    members[j].getPoduct().addAmount();
+                    all_kind = false;
+                }
+            }
+            if (all_kind) {
+                for (var k = 0; k < products.length; k++) {
+                    current.push(products[k]);
+                    products[k].addAmount();
+                }
+            }
+            all_kind = true;
+            users[i].setPoductList(current);
+        }
+
+        for (var i = 0; i < users.length; i++) {
+            var current_product_list = users[i].getPoductList();
+            var to_user_list = [];
+            for (var j = 0; j < current_product_list.length; j++) {
+                var price = current_product_list[j].getPrice() / current_product_list[j].getAmount();
+                to_user_list.push(new toUser(current_product_list[j].getUser(), price));
+            }
+            users[i].setToUserList(to_user_list);
+        }
+
+        console.log('New');
+
+        for (var i = 0; i < users.length; i++) {
+            console.log(users[i].to_string()+" should pay:");
+            var list = users[i].getToUserList();
+            for (var j = 0; j < list.length; j++) {
+                console.log(list[j])
             }
         }
-        if (all_kind) {
-            for (var k = 0; k < products.length; k++) {
-                current.push(products[k])
-                products[k].addAmount();
-            }
-        }
-        all_kind = true;
-        users[i].setPoductList(current);
-    }
-
-    for (var i = 0; i < users.length; i++) {
-        var current_product_list = users[i].getPoductList();
-        var to_user_list = [];
-        for (var j = 0; j < current_product_list.length; j++) {
-            var price = current_product_list[j].getPrice() / current_product_list[j].getAmount();
-            to_user_list.push(new toUser(current_product_list[j].getUser(), price));
-        }
-        users[i].setToUserList(to_user_list);
-    }
-
-    console.log('New');
-    for (var i = 0; i < users.length; i++) {
-        console.log(users[i].getName() + " " + users[i].getSurname())
-        var list = users[i].getToUserList();
-        for (var j = 0; j < list.length; j++) {
-            console.log(list[j])
-        }
-    }
+    });
 
 
 });
