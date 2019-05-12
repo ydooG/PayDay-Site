@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    {% load staticfiles %}
     <title>Budget control</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +15,7 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <!-- -->
-<div id="section00">
+<div id="section00" class="panel">
 
     <img id="logo" src="../images/logo.png" alt="PayDay">
 
@@ -24,9 +23,9 @@
          alt="Hello, I'm PayDay I'll help you to control budget.Follow me!">
 
     <div id="section-next" class="container">
-        <button type="button" href="#section2" class="btn btn-secondary btn-lg next-btn">Next</button>
-        <!--<a href="#section1">
-        </a>-->
+        <a href="#section1">
+            <button type="button" href="#section2" class="btn btn-secondary btn-lg next-btn">Next</button>
+        </a>
     </div>
 </div>
 
@@ -53,7 +52,7 @@
     </nav>
 
     <!-- -->
-    <div id="section1" class="container-fluid">
+    <div id="section1" class="panel container-fluid">
         <form id="form_creating_event">
             <div class="centered">
                 <div class="visible">
@@ -79,12 +78,12 @@
     </div>
 
     <!-- -->
-    <div id="section2" class="container-fluid">
+    <div id="section2" class="panel container-fluid">
         <div class="centered">
             <div class="visible">
                 <h1>Participants</h1><br/>
                 <div>
-                    <form id="form_adding_user" >
+                    <form id="form_adding_user">
                         <label for="usr"><h4>Name</h4></label>
                         <input type="text" class="form-control" id="name">
                         <label for="usr"><h4>Surname</h4></label>
@@ -104,7 +103,7 @@
     </div>
 
     <!-- -->
-    <div id="section3" class="container-fluid">
+    <div id="section3" class="panel container-fluid">
         <div class="centered">
             <div class="visible">
                 <h1>Items</h1>
@@ -162,47 +161,48 @@
     </div>
 
     <!-- -->
-    <div id="section4" class="container-fluid">
+    <div id="section4" class="panel container-fluid">
         <div class="centered">
             <div class="visible" id="ww">
                 <h1>Who and what</h1>
                 <div style="display: flex">
-                    <div class="dropdown">
-                        <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                            Select one...
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">First choice</a>
-                            <a class="dropdown-item" href="#">Second choice</a>
-                            <a class="dropdown-item" href="#">Third choice</a>
-                        </div>-->
-                        <select id="section4_users" class="custom-select custom-select-lg mb-3 select-user">
-                            <option selected>Select one...</option>
-                        </select>
-                        <br/><br/><br/>
-                        <button id="show_users_list" type="button" class="btn btn-secondary">
-                            Show list
-                        </button>
+                    <form id="form_adding_members">
+                        <div class="dropdown">
+                            <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                Select one...
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">First choice</a>
+                                <a class="dropdown-item" href="#">Second choice</a>
+                                <a class="dropdown-item" href="#">Third choice</a>
+                            </div>-->
+                            <select id="section4_users" class="custom-select custom-select-lg mb-3 select-user">
+                                <option selected>Select one...</option>
+                            </select>
+                            <br/><br/><br/>
+                            <button id="show_users_list" type="button" class="btn btn-secondary">
+                                Show list
+                            </button>
+                        </div>
 
-                    </div>
-
-                    <div class="dropdown">
-                        <select id="section4_products" class="custom-select custom-select-lg mb-3 select-user">
-                            <option selected>Select one...</option>
-                        </select>
-                        <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                            Select one...
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">First choice</a>
-                            <a class="dropdown-item" href="#">Second choice</a>
-                            <a class="dropdown-item" href="#">Third choice</a>
-                        </div>-->
-                        <br/><br/><br/>
-                        <button type="button" class="btn btn-secondary">
-                            Add to list
-                        </button>
-                    </div>
+                        <div class="dropdown">
+                            <select id="section4_products" class="custom-select custom-select-lg mb-3 select-user">
+                                <option selected>Select one...</option>
+                            </select>
+                            <!--<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                Select one...
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">First choice</a>
+                                <a class="dropdown-item" href="#">Second choice</a>
+                                <a class="dropdown-item" href="#">Third choice</a>
+                            </div>-->
+                            <br/><br/><br/>
+                            <button type="submit" class="btn btn-secondary">
+                                Add to list
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -215,7 +215,7 @@
     </div>
 
     <!-- -->
-    <div id="section5" class="container-fluid">
+    <div id="section5" class="panel container-fluid">
         <div class="show-btn">
             <a href="#">
                 <button type="button" class="btn btn-secondary btn-lg">Show</button>
@@ -224,5 +224,7 @@
     </div>
 </div>
 <script src="../js/mainScript.js"></script>
+<script src="../js/scroll.js"></script>
+<script src="../js/jquery.scrollify.js"></script>
 </body>
 </html>

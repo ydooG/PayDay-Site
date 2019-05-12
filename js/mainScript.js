@@ -82,16 +82,29 @@ $(document).ready(function () {
         var quantity = $('#quantity_of_product').val();
         var fullPrice = price * quantity;
         products.push(Product(name, users[user], fullPrice));
+
+        var option = document.createElement("option");
+        option.innerHTML = name;
+        option.value = products.length;
+        document.getElementById("section4_products").append(option);
+
         console.log(user + " bought " + quantity + ' ' + name + " for " + price);
 
+    });
+
+    var formAddMember = $('#form_adding_members');
+    formAddMember.on('submit', function (e) {
+        e.preventDefault();
+        var user = e.options[e.selectedIndex].text;
+        console.log(user);
     })
 
 
     function User(name, surname) {
         this.name = name;
         this.surname = surname;
-        this.productlist = []
-        this.toUserList = []
+        this.productlist = [];
+        this.toUserList = [];
         this.getName = function () {
             return this.name;
         };
@@ -136,7 +149,7 @@ $(document).ready(function () {
         };
         this.getAmount = function () {
             return this.amount;
-        }
+        };
         this.addAmount = function () {
             this.amount++;
         }
