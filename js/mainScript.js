@@ -262,7 +262,9 @@ $(document).ready(function () {
             console.log(products[i].to_string());
         }*/
 
-        for (var i = 0; i < 5; i++) {
+        // test input values
+
+        /*for (var i = 0; i < 5; i++) {
             var user = new User("User" + i, "Surname");
             users.push(user);
         }
@@ -284,7 +286,7 @@ $(document).ready(function () {
         }
         for (var i = 0; i < members.length; i++) {
             console.log(members[i]);
-        }
+        }*/
 
 
         for (var i = 0; i < users.length; i++) {
@@ -336,7 +338,10 @@ $(document).ready(function () {
         table.setAttribute('border', '1');
         table.className += " table";
         table.style.width = '60%';
-        table.style.color = 'white';
+        table.style.color = 'black';
+        table.style.marginLeft = '20%';
+        table.style.marginTop = '5vh';
+        table.style.backgroundColor = '#EEE';
         for (var i = 0; i < users.length; i++) {
             var row = table.insertRow(i);
             var list = users[i].getToUserList();
@@ -348,6 +353,7 @@ $(document).ready(function () {
                 data += "<p>" + list[j].getUser().getName() + " " + list[j].getUser().getSurname() + " " + list[j].getAmount() + "</p>";
             }
             cell1.innerHTML = data;
+            cell.style.width = '50%';
         }
 
         section5.appendChild(table);
